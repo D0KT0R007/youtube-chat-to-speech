@@ -1,4 +1,4 @@
-# youtube-chat-to-speach
+# youtube-chat-to-speech
 A simple Script to get youtube live-stream-chats to speach using SpVoice Interface (SAPI)
 
 # Todos:
