@@ -5,8 +5,7 @@ A simple Script to get youtube live-stream-chats to speach using SpVoice Interfa
 
 ## First time
 ```
-pip install pytchat
-pip install pypiwin32
+pip install -r requirements.txt
 ```
 ## Every Time
 ```

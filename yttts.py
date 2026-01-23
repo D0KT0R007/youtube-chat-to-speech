@@ -1,5 +1,4 @@
 import pytchat
-import time
 import json
 import re
 from win32com.client import Dispatch
