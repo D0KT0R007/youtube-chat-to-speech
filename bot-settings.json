@@ -1,0 +1,16 @@
+[
+  {
+    "comment": "Template",
+    "name": null,
+    "regex": null,
+    "ignore": true,
+    "ignoreRule": true
+  },
+  {
+    "comment": null,
+    "name": null,
+    "regex": null,
+    "ignore": false,
+    "ignoreRule": false
+  }
+]
