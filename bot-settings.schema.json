@@ -1,54 +1,78 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "array",
+  "type": "object",
 
-  "items": {
-    "type": "object",
-    "additionalProperties": false,
-
-    "properties": {
-      "name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "comment": {
-        "type": "string"
-      },
-      "ignore": {
-        "type": "boolean"
-      },
-      "regex": {
-        "type": "string",
-        "minLength": 1
-      },
-      "active": {
-        "type": "boolean"
-      }
+  "properties": {
+    "$schema": {
+      "type": "string"
     },
 
-    "required": ["name", "active"],
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
 
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "active": { "const": true }
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "comment": {
+            "type": "string"
+          },
+          "ignore": {
+            "type": "boolean"
+          },
+          "regex_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "regex_message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "active": {
+            "type": "boolean"
           }
         },
-        "then": {
-          "oneOf": [
-            {
-              "required": ["ignore"],
+
+        "required": ["name", "active"],
+
+        "allOf": [
+          {
+            "if": {
               "properties": {
-                "ignore": { "const": true }
+                "active": { "const": true }
               }
             },
-            {
-              "required": ["regex"]
+            "then": {
+              "oneOf": [
+                {
+                  "required": ["ignore"],
+                  "properties": {
+                    "ignore": { "const": true }
+                  }
+                },
+                {
+                  "required": ["regex_name"]
+                }
+              ]
             }
-          ]
-        }
+          },
+          {
+            "if": {
+              "required": ["regex_name"]
+            },
+            "then": {
+              "required": ["regex_message"]
+            }
+          }
+        ]
       }
-    ]
-  }
+    }
+  },
+
+  "required": ["rules"],
+  "additionalProperties": false
 }

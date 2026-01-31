@@ -1,0 +1,23 @@
+{
+  "$schema": "./bot-settings.schema.json",
+
+  "rules": [
+    {
+      "name": "",
+      "comment": "",
+      "active": true,
+      "ignore": true
+    },
+    {
+      "name": "",
+      "comment": "",
+      "active": true,
+      "regex": "abc"
+    },
+    {
+      "name": "",
+      "comment": "",
+      "active": false
+    }
+  ]
+}
