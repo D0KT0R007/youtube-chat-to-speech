@@ -1,0 +1,26 @@
+@restreambot4225
+​​[Twitch: Username] Was ist Skill
+
+DONE
+
+
+
+
+
+
+
+
+@restreambot4225
+​​[Twitch: blerp] Playing Blerp Sound Emote Meme using 500 Twitch Channel Points.
+
+
+@restreambot4225
+​​[Twitch: SoundAlerts] Username played "🕺🎉It's Friday Again!!" for 500 channel points!
+
+
+
+
+Get Message -> Message-Objekt bauen -> Message-Objekt Checken ->    if changes -> Change -> back to Message-Objekt bauen
+                                                                    if no Changes -> abschicken
+
+                                                                    
