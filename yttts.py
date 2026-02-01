@@ -17,21 +17,31 @@ def makeMessage (authorName, text):
         
     return Message(authorName,text)
 
-def checkMessage (Message):
-    #read Json
-
-    #check Names
-
-    if True: return
-    elif False: 
-        changedMessage=changeMessage(Message)
-        checkMessage(changedMessage)
-
-def changeMessage (Message, jsonObject):
-
+def changeMessage (Message, regexName, regexMessage):
+    
     return Message
 
+def checkMessage (Message):
+    #read Json
+    with open('bot-settings.json') as file:
+        rules = json.load(file)["rules"]
+        for rule in rules:
+            regexName=rule["regex_name"]
+            regexMessage=rule["regex_message"]
+            botname=rule["name"]
+            #check Names
+            if Message.authorName.lower() in botname.lower():
+                changedMessage=changeMessage(Message,regexName,regexMessage)
+                checkMessage(changedMessage)
+            else:
+                return Message
 
+
+def readMessage(Message):
+    voice = Dispatch("SAPI.SpVoice")
+    voice.Speak(authorName + " .-. " + message)
+    voice.speakWaitUntilDone(-1)
+    return
 
 
 if __name__ == "__main__":
@@ -52,7 +62,7 @@ if __name__ == "__main__":
             authorName=re.search("(?<=@).*",(messageFeed[0]["author"]["name"])).group()
             message=messageFeed[0]["message"]
             print(authorName + " - " + message)
-            voice.Speak(authorName + " .-. " + message)
-            voice.speakWaitUntilDone(-1)
+            messageObject=Message(authorName,message)
+            checkMessage(messageObject)
         else: time.sleep(5)
 
